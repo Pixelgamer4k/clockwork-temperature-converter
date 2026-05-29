@@ -1,0 +1,24 @@
+Create a complete, production-ready Android application named 'Clockwork Temperature Converter' using Kotlin and Jetpack Compose.
+
+The app is a pure analogue temperature conversion computer for °C to °F and vice versa, implemented as a dense, functional clockwork-style mechanism with real physics-based gear interactions. No numerical displays or text labels for temperatures anywhere - only visual analogue scales with tick marks, pointers, and gear positions that indicate the conversion through their mechanical linkage.
+
+Selected aesthetic from variations 3 and 4 combination: input crank handle linked to output pointer, full dense clockwork mechanism, gyroscope reactive parallax with tilted angle showing dynamic reflections and depth layers, realistic gear physics, pure analogue no numbers, industrial oil sheen metallic with thin-film interference.
+
+Research-informed realistic design:
+- Gear system: Use a main input gear (36 teeth) connected through a train of 10+ interlocking gears including idlers, compound gears, and a 20-tooth output gear to achieve the 9/5 = 1.8 ratio for the multiplier. Add a secondary differential gear mechanism or offset cam linkage (using additional 4 gears and a slotted arm) to handle the +32°F offset. All gears have realistic tooth profiles (involute approximation in drawing), proper meshing, and rotation propagation: turning the input rotates the entire train with correct angular velocities and directions (adjacent gears counter-rotate). Simulate real physics with velocity-based animation, momentum carry-over, and step-wise tick advancement synced to tooth count. Bidirectional: dragging either the C-side or F-side input updates the other with inverse calculation via the same mechanism. Include a prominent input crank handle on the main gear and a linked output pointer on the secondary gear.
+- Rendering: Industrial oil-sheen metallic style with dark gunmetal, brass, and bronze tones. Use custom SkSL RuntimeShader for PBR metallic rendering with thin-film interference (iridescence rainbow shifts based on view angle, specular highlights, subtle oil film reflections). Gears have detailed spokes, rivets, wear marks, and dynamic environment reflections. The entire mechanism has layered depth with parallax. Incorporate the gyroscope reactive parallax and tilted angle dynamic reflections from the selected variation.
+- Gyroscope-reactive: Integrate device gyroscope and rotation vector sensor. Tilting the phone causes realistic parallax shift of gear layers, changes virtual light direction for moving reflections and highlights across the metallic surfaces. Dynamic reflections update in real-time based on sensor data. Support for the tilted angle view.
+- Full-screen immersive layout: The entire screen is occupied by the mechanism with no status bar or navigation visible (use WindowInsets and immersive mode). Subtle mechanical frame around the edges. Interaction via touch dragging on main input handles or gear rims. Full mechanism view with input crank and output pointer as in selected variation.
+- Haptics and sounds: On every gear tick (when a tooth meshes, approximately every 10 degrees of main gear rotation), trigger strong haptic tick using HapticFeedback and play a short mechanical clockwork tick sound using SoundPool or AudioTrack (include a procedurally generated or embedded short tick audio). Rich expressive animations for gear rotations with overshoot and settling.
+- Additional: Use Material 3 Expressive design system, expressive theming, dynamic colors, rich animations, and haptics support. The app should feel like a high-end industrial instrument. Include a small mechanical lever or switch to select direction or reset to zero position (but keep minimal). MVVM architecture with StateFlow for sensor data and gear angles. Smooth 60fps animations.
+
+MANDATORY:
+- Use Material 3 Expressive design system, expressive theming, dynamic colors, rich animations, and haptics support.
+- Implement all requested features fully and functionally.
+- Use modern architecture: MVVM with StateFlow/ViewModel, clean separation.
+- Include smooth animations and haptic feedback on interactions.
+- Add a complete .github/workflows/android-build.yml that assembles debug APK and uploads it as artifact on push and workflow_dispatch.
+- Ensure gradlew wrapper is present (generate if missing with: gradle wrapper --gradle-version 8.9 --distribution-type all).
+- Make the app installable and runnable immediately.
+
+Output a fully working project ready for GitHub Actions.
